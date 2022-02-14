@@ -1,6 +1,6 @@
-import * as actions from "./actionTypes";
+import ADD from "./actionTypes";
 
 export const addMessage = (message) => ({
-  type: actions.ADD,
+  type: ADD,
   payload: message,
 });

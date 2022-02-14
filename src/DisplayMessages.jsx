@@ -6,7 +6,6 @@ export default class DisplayMessages extends Component {
 
     this.state = {
       input: "",
-      messages: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -18,17 +17,12 @@ export default class DisplayMessages extends Component {
   }
 
   submitMessage() {
-    this.setState((state) => {
-      const currentMessage = state.input;
-      return {
-        input: "",
-        messages: [...state.messages, currentMessage],
-      };
-    });
+    this.props.submitNewMessage(this.state.input);
+    this.setState({ input: "" });
   }
 
   render() {
-    const items = this.state.messages.map((item, index) => (
+    const items = this.props.messages.map((item, index) => (
       <li key={index}>{item}</li>
     ));
 

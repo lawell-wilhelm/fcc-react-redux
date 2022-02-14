@@ -2,10 +2,10 @@ import { connect } from "react-redux";
 import DisplayMessages from "./DisplayMessages";
 import { addMessage } from "./actions";
 
-const mapStateToProps = (state) => ({ message: state });
+const mapStateToProps = (state) => ({ messages: state });
 
 const mapDispatchToProps = (dispatch) => ({
-  submitNewMessage: (newMessage) => dispatch(addMessage),
+  submitNewMessage: (message) => dispatch(addMessage(message)),
 });
 
 const App = connect(mapStateToProps, mapDispatchToProps)(DisplayMessages);

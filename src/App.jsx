@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import { connect } from "react-redux";
 import DisplayMessages from "./DisplayMessages";
+import { addMessage } from "./actions";
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+const mapStateToProps = (state) => ({ message: state });
 
-  render() {
-    return <DisplayMessages />;
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  submitNewMessage: (newMessage) => dispatch(addMessage),
+});
+
+const App = connect(mapStateToProps, mapDispatchToProps)(DisplayMessages);
+
+export default App;

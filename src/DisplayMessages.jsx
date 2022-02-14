@@ -18,10 +18,13 @@ export default class DisplayMessages extends Component {
   }
 
   submitMessage() {
-    this.setState((state) => ({
-      messages: [...state.messages, state.input],
-      input: "",
-    }));
+    this.setState((state) => {
+      const currentMessage = state.input;
+      return {
+        input: "",
+        messages: [...state.messages, currentMessage],
+      };
+    });
   }
 
   render() {
